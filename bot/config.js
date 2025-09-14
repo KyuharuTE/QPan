@@ -1,3 +1,3 @@
 export default {
-	group_id: 426487931,
+	group_id: 0,
 };
