@@ -19,6 +19,13 @@ const port = 36524;
 
 await napcat.connect();
 
+app.all('*', function(req, res, next) {
+    res.setHeader('Access-Control-Allow-Origin','*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST'); 
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type, Authorization'); 
+    next();
+})
+
 app.get("/get_root_dir", async (req, res) => {
 	try {
 		const root_files = await napcat.get_group_root_files({
